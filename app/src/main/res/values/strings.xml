@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Doctor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_txt">Doctor Digital</string>
+    <string name="onboarding1_title_txt">Find Trusted Doctors</string>
+    <string name="onboarding1_subtitle_txt">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.</string>
+    <string name="onboarding_btn_txt_next">Next</string>
+    <string name="onboarding_btn_txt_skip">skip</string>
+    <string name="onboarding2_title_txt">Choose Best Doctors</string>
+    <string name="onboarding2_subtitle_txt">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.</string>
+    <string name="onboarding3_title_txt">Easy Appointments</string>
+    <string name="onboarding3_subtitle_txt">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.</string>
+    <string name="onboarding_btn_txt_get_started">Get Started</string>
 </resources>
