@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.onboarding.OnBoarding2Fragment">
 
     <ImageView
@@ -26,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="496dp"
+        android:textColor="@color/black"
         android:text="@string/onboarding2_title_txt"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +38,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="568dp"
+        android:textColor="@color/black"
         android:text="@string/onboarding2_subtitle_txt"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/next"
         android:layout_width="295dp"
         android:layout_height="54dp"
         android:layout_marginTop="690dp"
@@ -55,6 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/skip"
         android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginTop="750dp"

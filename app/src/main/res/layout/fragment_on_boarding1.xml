@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.onboarding.OnBoarding1Fragment">
 
     <ImageView
@@ -38,12 +39,14 @@
         android:layout_marginTop="568dp"
         android:text="@string/onboarding1_subtitle_txt"
         android:textSize="20sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/next"
         android:layout_width="295dp"
         android:layout_height="54dp"
         android:layout_marginTop="690dp"
@@ -55,6 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/skip"
         android:layout_width="95dp"
         android:layout_height="54dp"
         android:layout_marginTop="750dp"

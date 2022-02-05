@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".view.onboarding.OnBoarding3Fragment">
 
@@ -26,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="496dp"
+        android:textColor="@color/black"
         android:text="@string/onboarding3_title_txt"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +38,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="568dp"
+        android:textColor="@color/black"
         android:text="@string/onboarding3_subtitle_txt"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,24 +47,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/get_started"
         android:layout_width="295dp"
         android:layout_height="54dp"
         android:layout_marginTop="690dp"
         android:background="@drawable/onboarding_btn_shape"
         android:elevation="10dp"
         android:text="@string/onboarding_btn_txt_get_started"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:layout_width="95dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="750dp"
-        android:background="@android:color/transparent"
-        android:elevation="10dp"
-        android:text="@string/onboarding_btn_txt_skip"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
