@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Doctor" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.Doctor" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,19 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Starting" parent="Theme.SplashScreen">
-        // Set the splash screen background, animated icon, and animation duration.
+    <style name="Splash" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowSplashScreenBackground">@color/white</item>
-
-        // Use windowSplashScreenAnimatedIcon to add either a drawable or an
-        // animated drawable. One of these is required.
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
-        <item name="windowSplashScreenAnimationDuration">200</item>  # Required for
-        # animated icons
-
-        // Set the theme of the Activity that directly follows your splash screen.
-        <item name="postSplashScreenTheme">@style/Theme.Doctor</item>  # Required.
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
-
-
 </resources>

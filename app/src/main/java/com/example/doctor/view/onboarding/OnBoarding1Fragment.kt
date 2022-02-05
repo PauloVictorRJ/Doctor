@@ -22,7 +22,7 @@ class OnBoarding1Fragment : Fragment(R.layout.fragment_on_boarding1) {
     ): View? {
         _binding = FragmentOnBoarding1Binding.inflate(inflater, container, false)
 
-//        SharedPref(requireParentFragment()).saveBoolean("onboarding", true)
+        SharedPref(requireParentFragment()).saveBoolean("onboarding", true)
         viewModel.checkOnboarding(requireParentFragment())
 
         var btnNext = binding.next
