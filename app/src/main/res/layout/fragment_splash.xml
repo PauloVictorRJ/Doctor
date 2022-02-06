@@ -28,10 +28,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_marginStart="-140dp"
-        android:layout_marginTop="-150dp"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="-320dp"
+        android:layout_marginTop="-300dp"
         android:src="@drawable/alphas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,8 +39,8 @@
     <ImageView
         android:layout_width="600dp"
         android:layout_height="600dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="580dp"
         android:src="@drawable/alphas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

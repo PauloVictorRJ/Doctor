@@ -12,4 +12,8 @@
     <string name="onboarding3_title_txt">Easy Appointments</string>
     <string name="onboarding3_subtitle_txt">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.</string>
     <string name="onboarding_btn_txt_get_started">Get Started</string>
+    <string name="login_welcome_txt">Welcome Back</string>
+    <string name="login_subtitle_txt">You can search c ourse, apply course and find scholarship for abroad studies</string>
+    <string name="login_email_hint_txt">E-mail</string>
+    <string name="login_password_hint_txt">Password</string>
 </resources>

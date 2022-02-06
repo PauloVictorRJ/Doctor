@@ -27,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="496dp"
-        android:textColor="@color/black"
         android:text="@string/onboarding2_title_txt"
+        android:textColor="@color/black"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="568dp"
-        android:textColor="@color/black"
         android:text="@string/onboarding2_subtitle_txt"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -54,6 +54,7 @@
         android:background="@drawable/onboarding_btn_shape"
         android:elevation="10dp"
         android:text="@string/onboarding_btn_txt_next"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,9 +75,20 @@
     <ImageView
         android:layout_width="600dp"
         android:layout_height="600dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="-320dp"
+        android:layout_marginTop="-300dp"
         android:src="@drawable/alphas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="580dp"
+        android:src="@drawable/alphas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
