@@ -51,7 +51,7 @@
         android:layout_width="295dp"
         android:layout_height="54dp"
         android:layout_marginTop="690dp"
-        android:background="@drawable/onboarding_btn_shape"
+        android:background="@drawable/btn_background_retangle"
         android:elevation="10dp"
         android:text="@string/onboarding_btn_txt_next"
         android:textColor="@color/white"

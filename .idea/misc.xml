@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_circle.xml" value="0.2665" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle.xml" value="0.2665" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/facebook_logo.xml" value="0.221" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/forgot_dialog_background.xml" value="0.2665" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo.xml" value="0.221" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo_cores.xml" value="0.221" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo_txt.xml" value="0.221" />
@@ -17,11 +20,13 @@
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/splash_bg.xml" value="0.1" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/splash_screen.xml" value="0.206" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_main.xml" value="0.3421875" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.3421875" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.35625" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_login.xml" value="0.5" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_login.xml" value="0.5142555438225976" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding1.xml" value="0.35625" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding2.xml" value="0.35625" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.35625" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_splash.xml" value="0.33" />
       </map>
     </option>

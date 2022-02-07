@@ -9,19 +9,18 @@ import com.example.doctor.view.onboarding.OnBoarding2FragmentDirections
 import com.example.doctor.view.onboarding.OnBoarding3FragmentDirections
 
 
-
 class OnBoardingViewModel : ViewModel() {
 
     fun checkOnboarding(fragment: Fragment) {
         var onboardingValue = SharedPref(fragment).readBoolean("onboarding")
         if (onboardingValue == false) {
-            findNavController(fragment).navigate(OnBoarding1FragmentDirections.actionOnBoarding1FragmentToHomeFragment())
+            findNavController(fragment).navigate(OnBoarding1FragmentDirections.actionOnBoarding1FragmentToLoginFragment())
         }
     }
 
     fun btnGetStarted(fragment: Fragment) {
         SharedPref(fragment).saveBoolean("onboarding", false)
-        findNavController(fragment).navigate(OnBoarding3FragmentDirections.actionOnBoarding3FragmentToHomeFragment())
+        findNavController(fragment).navigate(OnBoarding3FragmentDirections.actionOnBoarding3FragmentToLoginFragment())
     }
 
     fun btnFrag1Next(fragment: Fragment) {
@@ -33,10 +32,10 @@ class OnBoardingViewModel : ViewModel() {
     }
 
     fun btnFrag1Skip(fragment: Fragment) {
-        findNavController(fragment).navigate(OnBoarding1FragmentDirections.actionOnBoarding1FragmentToHomeFragment())
+        findNavController(fragment).navigate(OnBoarding1FragmentDirections.actionOnBoarding1FragmentToLoginFragment())
     }
 
     fun btnFrag2Skip(fragment: Fragment) {
-        findNavController(fragment).navigate(OnBoarding2FragmentDirections.actionOnBoarding2FragmentToHomeFragment())
+        findNavController(fragment).navigate(OnBoarding2FragmentDirections.actionOnBoarding2FragmentToLoginFragment())
     }
 }
