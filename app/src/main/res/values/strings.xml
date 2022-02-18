@@ -28,4 +28,12 @@
     <string name="forgot_title_txt">Forgot password</string>
     <string name="forgot_subtitle">Enter your email for the verification proccesss, we will send 4 digits code to your email.</string>
     <string name="forgot_btn_continue_txt">Continue</string>
+    <string name="profile_title_txt">Set up your profile</string>
+    <string name="profile_subtitle_txt">Update your profile to connect your doctor with better impression</string>
+    <string name="profile_personal_info_title">Personal information</string>
+    <string name="profile_edittxt_name">Nome</string>
+    <string name="login_contact_number_hint_txt">Contact number</string>
+    <string name="login_date_birth_hint_txt">Date of birth</string>
+    <string name="login_location_hint_txt">Location</string>
+    <string name="profile_btn_txt">Continue</string>
 </resources>

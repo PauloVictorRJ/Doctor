@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.doctor.R
 import com.example.doctor.databinding.FragmentLoginBinding
 
@@ -18,12 +19,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        val btn_forgot = binding.btnForgot
-        btn_forgot.setOnClickListener {
+        val btnForgot = binding.btnForgot
+        btnForgot.setOnClickListener {
             dialog.show(parentFragmentManager, ForgotPassDialogFragment.TAG)
+        }
+
+        val btnLogin = binding.btnLogin
+        btnLogin.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToProfileActivity())
         }
 
         return binding.root
