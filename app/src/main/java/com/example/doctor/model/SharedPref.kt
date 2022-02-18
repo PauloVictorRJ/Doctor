@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 
 
 class SharedPref(fragment: Fragment) {
-    val sharedPref = fragment.activity?.getPreferences(Context.MODE_PRIVATE)
+    private val sharedPref = fragment.activity?.getPreferences(Context.MODE_PRIVATE)
 
     fun saveBoolean(string: String, boolean: Boolean) {
         sharedPref?.edit()?.putBoolean(string, boolean)?.apply()
@@ -15,4 +15,3 @@ class SharedPref(fragment: Fragment) {
         return sharedPref?.getBoolean(string, false)
     }
 }
-
