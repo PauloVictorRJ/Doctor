@@ -22,14 +22,14 @@
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/splash_bg.xml" value="0.1" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/splash_screen.xml" value="0.206" />
         <entry key="..\:/DH/Doctor/app/src/main/res/font/fonts.xml" value="0.38645833333333335" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_main.xml" value="0.3421875" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_main.xml" value="0.2671875" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.25" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.35625" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_login.xml" value="0.22" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding1.xml" value="0.35625" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding2.xml" value="0.35625" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.35625" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding1.xml" value="0.15703125" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding2.xml" value="0.209375" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.209375" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_splash.xml" value="0.33" />
       </map>

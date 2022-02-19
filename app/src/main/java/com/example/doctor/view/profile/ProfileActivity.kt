@@ -1,5 +1,7 @@
 package com.example.doctor.view.profile
 
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -35,17 +37,14 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
     private val refresh: ImageButton
         get() = findViewById(R.id.refresh)
 
-//    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-//        super.onCreate(savedInstanceState, persistentState)
-
-    override fun onResume() {
-        super.onResume()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         viewModel.loadDoctor()
 
         observeData()
 
-        refresh.setOnClickListener{
+        refresh.setOnClickListener {
             viewModel.loadDoctor()
         }
     }
@@ -61,7 +60,7 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
             profileName.setText(it.name.first)
             profileContactNumber.setText(it.phone)
             profileBirthDate.setText(it.dob.date)
-            profileLocation.setText(it.location.city)
+            profileLocation.setText(it.location.state)
             profilePicture.loadCircle(it.picture.large)
         }
     }
