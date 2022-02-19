@@ -1,12 +1,12 @@
 package com.example.doctor.viewmodel
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.doctor.model.ProfileItem
 import com.example.doctor.model.repository.UserRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onCompletion
@@ -30,13 +30,13 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
         get() = _error
 
     fun loadDoctor() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             userRepository.fecthProfile()
-                .onStart { _loading.value = true }
-                .catch { _error.value = true}
-                .onCompletion { _loading.value = false }
+                .onStart { _loading.postValue(true) }
+                .catch { _error.postValue(true) }
+                .onCompletion { _loading.postValue(false) }
                 .collect {
-                    _profile.value = it.results.first()
+                    _profile.postValue(it.results.first())
                 }
         }
     }
