@@ -32,11 +32,11 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
 
     fun loadDoctor() {
 
-            viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
+            while (true) {
                 userRepository.fecthProfile()
                     .onStart {
                         _loading.postValue(true)
-                        delay(5000)
                     }
                     .catch { _error.postValue(true) }
                     .onCompletion { _loading.postValue(false) }
@@ -46,3 +46,4 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
             }
         }
     }
+}

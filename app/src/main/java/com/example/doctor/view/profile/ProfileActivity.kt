@@ -10,6 +10,7 @@ import com.example.doctor.R
 import com.example.doctor.util.loadCircle
 import com.example.doctor.viewmodel.ProfileViewModel
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.delay
 
 
 class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
@@ -64,5 +65,4 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
             profilePicture.loadCircle(it.picture.large)
         }
     }
-
 }
