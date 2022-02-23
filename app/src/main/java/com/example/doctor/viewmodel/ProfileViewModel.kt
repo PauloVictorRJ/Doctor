@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.doctor.model.ProfileItem
 import com.example.doctor.model.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onCompletion
@@ -30,14 +31,18 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
         get() = _error
 
     fun loadDoctor() {
-        viewModelScope.launch(Dispatchers.IO) {
-            userRepository.fecthProfile()
-                .onStart { _loading.postValue(true) }
-                .catch { _error.postValue(true) }
-                .onCompletion { _loading.postValue(false) }
-                .collect {
-                    _profile.postValue(it.results.first())
-                }
+
+            viewModelScope.launch(Dispatchers.IO) {
+                userRepository.fecthProfile()
+                    .onStart {
+                        _loading.postValue(true)
+                        delay(5000)
+                    }
+                    .catch { _error.postValue(true) }
+                    .onCompletion { _loading.postValue(false) }
+                    .collect {
+                        _profile.postValue(it.results.first())
+                    }
+            }
         }
     }
-}
