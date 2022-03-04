@@ -30,8 +30,7 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
     val error: LiveData<Boolean>
         get() = _error
 
-    fun loadDoctor() {
-
+    fun loadUser() {
         viewModelScope.launch(Dispatchers.IO) {
             while (true) {
                 userRepository.fecthProfile()

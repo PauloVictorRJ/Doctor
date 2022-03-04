@@ -14,4 +14,5 @@
     <dimen name="seventy_two_dips">72dp</dimen>
     <dimen name="eighty_four_dips">84dp</dimen>
     <dimen name="ninety_six_dips">96dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

@@ -11,9 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
+            android:name=".view.findDoctors.FindDoctorsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_find_doctors"
+            android:theme="@style/Theme.Doctor.NoActionBar" />
+        <activity
             android:name=".view.profile.ProfileActivity"
             android:exported="false"
-            android:theme="@style/Theme.Doctor"/>
+            android:theme="@style/Theme.Doctor" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

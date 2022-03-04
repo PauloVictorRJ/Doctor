@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.doctor.R
 import com.example.doctor.databinding.FragmentLoginBinding
 import com.example.doctor.viewmodel.LoginViewModel
@@ -45,6 +46,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         loginViewModel.success.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToProfileActivity())
         }
 
         val btnForgot = binding.btnForgot

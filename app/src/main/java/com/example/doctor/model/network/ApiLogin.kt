@@ -2,12 +2,23 @@ package com.example.doctor.model.network
 
 import com.example.doctor.model.LoginRequest
 import com.example.doctor.model.LoginResponse
-import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import com.example.doctor.model.factory.RetrofitFactory
+import retrofit2.http.*
 
 
 interface ApiLogin {
     @POST("login")
-    fun login(@Body login: LoginRequest): Call<LoginResponse>
+    suspend fun login(@Body login: LoginRequest): LoginResponse
+
+    @GET("doctor")
+    suspend fun doctors(
+        @Header("Authorization") authorization: String) : List<Doctors>
+
+    companion object {
+        val api: ApiLogin by lazy {
+            RetrofitFactory
+                .build(true)
+                .create(ApiLogin::class.java)
+        }
+    }
 }
