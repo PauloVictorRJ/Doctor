@@ -7,10 +7,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-object RetrofitFactory {
+object RetrofitLogin {
     fun Build(client: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
         .client(client)
-        .baseUrl(BuildConfig.BASE_URL)
+        .baseUrl(BuildConfig.BASE_URL_API_DOCTOR)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 }

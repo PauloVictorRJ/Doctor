@@ -6,7 +6,6 @@
     android:layout_height="590dp"
     tools:context=".view.login.ForgotPassDialogFragment">
 
-
     <Button
         android:layout_width="180dp"
         android:layout_height="5dp"
@@ -78,6 +77,5 @@
         android:layout_marginTop="360dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

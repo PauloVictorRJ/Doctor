@@ -14,7 +14,7 @@ interface Api {
 
     companion object {
         val instance: Api by lazy {
-            RetrofitFactory.build(OkhttpClientFactory.build(), GsonFactory.build())
+            RetrofitFactory.Build(OkhttpClientFactory.build(), GsonFactory.build())
                 .create(Api::class.java)
         }
     }
