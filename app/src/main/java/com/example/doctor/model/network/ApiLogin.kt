@@ -1,5 +1,7 @@
 package com.example.doctor.model.network
 
+import com.example.doctor.model.Doctor
+import com.example.doctor.model.DoctorsResponse
 import com.example.doctor.model.LoginRequest
 import com.example.doctor.model.LoginResponse
 import com.example.doctor.model.factory.RetrofitFactory
@@ -11,8 +13,9 @@ interface ApiLogin {
     suspend fun login(@Body login: LoginRequest): LoginResponse
 
     @GET("doctor")
-    suspend fun doctors(
-        @Header("Authorization") authorization: String) : List<Doctors>
+    suspend fun getDoctors(
+        @Header("Authorization") authorization: String
+    ): List<Doctor>
 
     companion object {
         val api: ApiLogin by lazy {

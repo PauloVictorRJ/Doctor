@@ -3,7 +3,7 @@ package com.example.doctor.viewmodel
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import com.example.doctor.model.SharedPref
+import com.example.doctor.model.memory.SharedPref
 import com.example.doctor.view.onboarding.OnBoarding1FragmentDirections
 import com.example.doctor.view.onboarding.OnBoarding2FragmentDirections
 import com.example.doctor.view.onboarding.OnBoarding3FragmentDirections

@@ -23,6 +23,7 @@ class LoginViewModel(val repository: LoginRepository = LoginRepository.instance)
         repository
             .login(email, password)
             .catch { _error.postValue(true) }
-            .collect { _success.postValue(it.token) }
+            .collect { _success.postValue(it.token)
+            }
     }
 }
