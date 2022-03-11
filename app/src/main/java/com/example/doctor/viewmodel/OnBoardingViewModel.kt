@@ -12,14 +12,15 @@ import com.example.doctor.view.onboarding.OnBoarding3FragmentDirections
 class OnBoardingViewModel : ViewModel() {
 
     fun checkOnboarding(fragment: Fragment) {
-        var onboardingValue = SharedPref(fragment).readBoolean("onboarding")
+        var onboardingValue = SharedPref().readBoolean("onboarding")
+
         if (onboardingValue == false) {
             findNavController(fragment).navigate(OnBoarding1FragmentDirections.actionOnBoarding1FragmentToLoginFragment())
         }
     }
 
     fun btnGetStarted(fragment: Fragment) {
-        SharedPref(fragment).saveBoolean("onboarding", false)
+        SharedPref().saveBoolean("onboarding", false)
         findNavController(fragment).navigate(OnBoarding3FragmentDirections.actionOnBoarding3FragmentToLoginFragment())
     }
 

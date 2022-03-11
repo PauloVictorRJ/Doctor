@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 
-class LoginRepository(private val api: ApiLogin = ApiLogin.api) {
+class LoginRepository(private val api: ApiLogin = ApiLogin.instance) {
     fun login(email: String, password: String): Flow<LoginResponse> = flow {
         emit(api.login(LoginRequest(email, password)))
     }.flowOn(Dispatchers.IO)

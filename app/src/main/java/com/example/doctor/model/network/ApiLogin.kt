@@ -1,9 +1,10 @@
 package com.example.doctor.model.network
 
-import com.example.doctor.model.Doctor
 import com.example.doctor.model.DoctorsResponse
 import com.example.doctor.model.LoginRequest
 import com.example.doctor.model.LoginResponse
+import com.example.doctor.model.factory.GsonFactory
+import com.example.doctor.model.factory.OkhttpClientFactory
 import com.example.doctor.model.factory.RetrofitFactory
 import retrofit2.http.*
 
@@ -13,14 +14,16 @@ interface ApiLogin {
     suspend fun login(@Body login: LoginRequest): LoginResponse
 
     @GET("doctor")
-    suspend fun getDoctors(
-        @Header("Authorization") authorization: String
-    ): List<Doctor>
+    suspend fun getDoctors(pageNumber: Int): DoctorsResponse
 
     companion object {
-        val api: ApiLogin by lazy {
+        val instance: ApiLogin by lazy {
             RetrofitFactory
-                .build(true)
+                .build(
+                    OkhttpClientFactory.build(),
+                    GsonFactory.build(),
+                    true
+                )
                 .create(ApiLogin::class.java)
         }
     }

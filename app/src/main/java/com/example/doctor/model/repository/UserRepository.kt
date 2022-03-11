@@ -9,12 +9,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 
-class UserRepository(private val api: ApiUser = ApiUser.api) {
+class UserRepository(private val api: ApiUser = ApiUser.instance) {
     fun fecthProfile(): Flow<ProfileResponse> = flow {
         emit(api.getProfile())
-        delay(5000)
     }.flowOn(Dispatchers.IO)
-
 
     companion object {
         val instance by lazy {

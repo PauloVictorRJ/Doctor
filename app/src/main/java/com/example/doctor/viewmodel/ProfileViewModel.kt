@@ -32,17 +32,16 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
 
     fun loadUser() {
         viewModelScope.launch(Dispatchers.IO) {
-            while (true) {
-                userRepository.fecthProfile()
-                    .onStart {
-                        _loading.postValue(true)
-                    }
-                    .catch { _error.postValue(true) }
-                    .onCompletion { _loading.postValue(false) }
-                    .collect {
-                        _profile.postValue(it.results.first())
-                    }
-            }
+            userRepository.fecthProfile()
+                .onStart {
+                    _loading.postValue(true)
+                }
+                .catch { _error.postValue(true) }
+                .onCompletion { _loading.postValue(false) }
+                .collect {
+                    _profile.postValue(it.results.first())
+                }
         }
     }
 }
+

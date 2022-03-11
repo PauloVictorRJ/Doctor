@@ -38,18 +38,25 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
     private val btnContinue: Button
         get() = findViewById(R.id.btn_continue)
 
+    private val btnRefresh: Button
+        get() = findViewById(R.id.btn_refresh)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewModel.loadUser()
 
-        btnContinue.setOnClickListener{
+        btnContinue.setOnClickListener {
             val intent = Intent(this, FindDoctorsActivity::class.java)
             startActivity(intent)
         }
 
         observeData()
+
+        btnRefresh.setOnClickListener {
+            viewModel.loadUser()
+        }
     }
 
     private fun observeData() {

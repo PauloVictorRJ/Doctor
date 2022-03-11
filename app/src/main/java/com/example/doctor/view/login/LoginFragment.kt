@@ -1,6 +1,5 @@
 package com.example.doctor.view.login
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,8 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginViewModel.success.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
 
-            val sharedPref = this.activity?.getSharedPreferences("tokenFile",Context.MODE_PRIVATE)
-            sharedPref?.edit()?.putString("token", it)?.apply()
+            SharedPref().saveString("token", it)
 
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToProfileActivity())
         }

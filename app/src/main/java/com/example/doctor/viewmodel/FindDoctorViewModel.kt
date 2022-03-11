@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.doctor.model.Doctor
+import com.example.doctor.model.DoctorsResponse
+import com.example.doctor.model.memory.SharedPref
 import com.example.doctor.model.repository.DoctorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -14,21 +15,23 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 
-class FindDoctorViewModel(val repository: DoctorRepository = DoctorRepository.instance) :
+class FindDoctorViewModel(
+    private val repository: DoctorRepository = DoctorRepository.instance,
+    private val sp: SharedPref = SharedPref()) :
     ViewModel() {
 
-    private val _listDoctors: MutableLiveData<List<Doctor>> = MutableLiveData()
-    val listDoctors: LiveData<List<Doctor>>
+    private val _listDoctors: MutableLiveData<DoctorsResponse> = MutableLiveData()
+    val listDoctors: LiveData<DoctorsResponse>
         get() = _listDoctors
 
-    fun getDoctorList(token: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun getDoctorList(pageNumber:Int) = viewModelScope.launch(Dispatchers.IO) {
         repository
-            .getListDoctors(token)
+            .getListDoctors(pageNumber)
             .onStart { }
             .catch { }
             .onCompletion { }
-            .collect { _listDoctors.postValue(it)
-            var teste = it
-            var teste2 = teste}
+            .collect {
+                _listDoctors.postValue(it)
+            }
     }
 }
