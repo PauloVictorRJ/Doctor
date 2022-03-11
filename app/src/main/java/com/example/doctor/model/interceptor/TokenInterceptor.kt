@@ -4,9 +4,8 @@ import com.example.doctor.model.memory.SharedPref
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class TokenInterceptor : Interceptor {
-    private val token = SharedPref().readString("token")
 
+class TokenInterceptor(val sharedPref: SharedPref = SharedPref.instance) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
 
@@ -17,7 +16,7 @@ class TokenInterceptor : Interceptor {
         val newRequest = request
             .newBuilder()
             .addHeader("Content-Type", "application/json")
-            .addHeader("Authorization", token)
+            .addHeader("Authorization", sharedPref.readString("token"))
             .build()
 
         return chain.proceed(newRequest)

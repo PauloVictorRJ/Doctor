@@ -47,7 +47,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="find_doctor_item_name_txt">Dr. Shruti Kedia</string>
     <string name="find_doctor_item_specialization_txt">Tooth Dentist</string>
-    <string name="find_doctor_item_experience_txt">7 Years experience</string>
+    <string name="find_doctor_item_experience_txt">%1$d Years experience</string>
     <string name="find_doctor_item_classification_txt">1.2</string>
     <string name="profile_btn_refresh_txt">Refresh</string>
     <string name="find_doctor_item_book_now_btn_txt">Booking Now</string>

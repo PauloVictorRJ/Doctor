@@ -30,7 +30,7 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
     }
 
     private fun setScrollView() {
-        val page = 1
+        var actualPage = 2
 
         findDoctorRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -42,8 +42,9 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
                 val lastItem = lastItemVisible + 5 >= totalCountItems
 
-                if ((totalCountItems > 0 && lastItem) && page <= viewmodel.limitPage) {
-                    findDoctorsViewModel.getDoctorList(page)
+                if ((totalCountItems > 0 && lastItem) && actualPage <= findDoctorsViewModel.pageDoctorsLimit) {
+                    findDoctorsViewModel.getDoctorList(actualPage)
+                    actualPage++
                 }
             }
         })

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.doctor.model.memory.SharedPref
 import com.example.doctor.model.repository.LoginRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -11,7 +12,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class LoginViewModel(val repository: LoginRepository = LoginRepository.instance) : ViewModel() {
+class LoginViewModel(val repository: LoginRepository = LoginRepository.instance, val sharedPref:SharedPref = SharedPref.instance) : ViewModel() {
     private val _error: MutableLiveData<Boolean> = MutableLiveData(false)
     val error: LiveData<Boolean> = _error
 
@@ -26,4 +27,9 @@ class LoginViewModel(val repository: LoginRepository = LoginRepository.instance)
             .collect { _success.postValue(it.token)
             }
     }
+
+    fun saveToken(token:String){
+        sharedPref.saveString("token", token)
+    }
+
 }

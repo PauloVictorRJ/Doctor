@@ -48,7 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginViewModel.success.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
 
-            SharedPref().saveString("token", it)
+            loginViewModel.saveToken(it)
 
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToProfileActivity())
         }

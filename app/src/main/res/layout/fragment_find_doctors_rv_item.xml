@@ -78,7 +78,7 @@
             android:id="@+id/find_doctor_item_views_icon"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="3dp"
             android:src="@drawable/ic_views"
             app:layout_constraintStart_toStartOf="@id/find_doctor_item_specialization"
@@ -99,7 +99,7 @@
             android:id="@+id/find_doctor_item_patient_stories_icon"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="3dp"
             android:src="@drawable/ic_patient_stories"
             app:layout_constraintStart_toStartOf="@id/find_doctor_item_specialization"
@@ -117,20 +117,13 @@
             app:layout_constraintTop_toTopOf="@id/find_doctor_item_patient_stories_icon" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/find_doctor_item_fav_btn"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/find_doctor_item_booking_btn"
             android:layout_width="130dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/btn_background_retangle"
             android:text="@string/find_doctor_item_book_now_btn_txt"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

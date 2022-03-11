@@ -2,6 +2,8 @@ package com.example.doctor.view.finddoctors
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctor.R
 import com.example.doctor.model.Doctors
@@ -9,7 +11,7 @@ import com.example.doctor.view.finddoctors.rvadapters.FindDoctorsRvViewHolder
 
 
 class FindDoctorsRvAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val doctors: MutableList<Doctors> = mutableListOf()
+    private val diffUtil = AsyncListDiffer<Doctors>(this, DIFF_UTIL)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,14 +26,25 @@ class FindDoctorsRvAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is FindDoctorsRvViewHolder -> holder.bind(doctors[position])
+            is FindDoctorsRvViewHolder -> holder.bind(diffUtil.currentList[position])
         }
     }
 
-    override fun getItemCount() = doctors.size
+    override fun getItemCount() = diffUtil.currentList.size
 
     fun updateList(items: List<Doctors>) {
-        doctors.addAll(items)
-        notifyDataSetChanged()
+        diffUtil.submitList(items)
+    }
+
+    companion object {
+        val DIFF_UTIL = object : DiffUtil.ItemCallback<Doctors>() {
+            override fun areItemsTheSame(oldItem: Doctors, newItem: Doctors): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Doctors, newItem: Doctors): Boolean {
+                return oldItem.id == newItem.id
+            }
+        }
     }
 }

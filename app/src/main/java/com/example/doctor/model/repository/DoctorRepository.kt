@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 
 
 class DoctorRepository(private val api: ApiLogin = ApiLogin.instance) {
-    fun getListDoctors(pageNumber:Int): Flow<DoctorsResponse> = flow {
+    fun getListDoctors(pageNumber: Int): Flow<DoctorsResponse> = flow {
         emit(api.getDoctors(pageNumber))
     }.flowOn(Dispatchers.IO)
 

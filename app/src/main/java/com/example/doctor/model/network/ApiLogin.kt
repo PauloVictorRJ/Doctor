@@ -14,7 +14,9 @@ interface ApiLogin {
     suspend fun login(@Body login: LoginRequest): LoginResponse
 
     @GET("doctor")
-    suspend fun getDoctors(pageNumber: Int): DoctorsResponse
+    suspend fun getDoctors(
+        @Query("page") pageNumber: Int = 1
+    ): DoctorsResponse
 
     companion object {
         val instance: ApiLogin by lazy {
