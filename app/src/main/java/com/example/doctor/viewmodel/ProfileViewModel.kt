@@ -30,19 +30,18 @@ class ProfileViewModel(private val userRepository: UserRepository = UserReposito
     val error: LiveData<Boolean>
         get() = _error
 
-    fun loadDoctor() {
-
-            viewModelScope.launch(Dispatchers.IO) {
-                userRepository.fecthProfile()
-                    .onStart {
-                        _loading.postValue(true)
-                        delay(5000)
-                    }
-                    .catch { _error.postValue(true) }
-                    .onCompletion { _loading.postValue(false) }
-                    .collect {
-                        _profile.postValue(it.results.first())
-                    }
-            }
+    fun loadUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.fecthProfile()
+                .onStart {
+                    _loading.postValue(true)
+                }
+                .catch { _error.postValue(true) }
+                .onCompletion { _loading.postValue(false) }
+                .collect {
+                    _profile.postValue(it.results.first())
+                }
         }
     }
+}
+

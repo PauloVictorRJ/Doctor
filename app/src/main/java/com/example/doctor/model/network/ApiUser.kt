@@ -7,15 +7,19 @@ import com.example.doctor.model.factory.RetrofitFactory
 import retrofit2.http.GET
 
 
-interface Api {
-
+interface ApiUser {
     @GET("api")
     suspend fun getProfile(): ProfileResponse
 
     companion object {
-        val instance: Api by lazy {
-            RetrofitFactory.build(OkhttpClientFactory.build(), GsonFactory.build())
-                .create(Api::class.java)
+        val instance: ApiUser by lazy {
+            RetrofitFactory
+                .build(
+                    OkhttpClientFactory.build(),
+                    GsonFactory.build(),
+                    false
+                )
+                .create(ApiUser::class.java)
         }
     }
 }

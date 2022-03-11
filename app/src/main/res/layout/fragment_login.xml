@@ -38,36 +38,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:layout_width="170dp"-->
-<!--        android:layout_height="54dp"-->
-<!--        android:layout_marginTop="260dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:elevation="0dp"-->
-<!--        app:icon="@drawable/facebook_logo"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <ImageButton
+        android:layout_width="170dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="260dp"
+        android:background="@color/white"
+        android:src="@drawable/facebook_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
         android:layout_height="54dp"
         android:layout_marginTop="378dp"
         android:hint="@string/login_email_hint_txt"
-        app:endIconDrawable="@drawable/ic_baseline_done_24"
+        app:endIconDrawable="@drawable/ic_email"
         app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
         android:layout_height="54dp"
         android:layout_marginTop="450dp"
@@ -78,6 +78,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />

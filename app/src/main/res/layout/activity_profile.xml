@@ -48,16 +48,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageButton
-        android:id="@+id/refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="192dp"
-        android:src="@drawable/ic_refresh"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,8 +60,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginTop="300dp"
         android:hint="@string/profile_edittxt_name"
         app:errorEnabled="true"
@@ -87,12 +78,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="370dp"
         android:hint="@string/login_contact_number_hint_txt"
-        app:endIconDrawable="@drawable/ic_edit"
-        app:endIconMode="custom"
         app:errorEnabled="true"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,13 +96,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="400dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="440dp"
         android:hint="@string/login_date_birth_hint_txt"
         app:endIconDrawable="@drawable/ic_edit"
-        app:endIconMode="custom"
-        app:errorEnabled="true"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,9 +114,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="335dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="450dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="510dp"
         android:hint="@string/login_location_hint_txt"
         app:errorEnabled="true"
         app:hintTextColor="@color/black"
@@ -145,7 +135,7 @@
         android:id="@+id/btn_continue"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="580dp"
         android:background="@drawable/btn_background_retangle"
         android:elevation="10dp"
         android:text="@string/profile_btn_txt"
@@ -173,6 +163,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="148dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/profile_btn_refresh_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/loading"
         android:layout_width="wrap_content"
@@ -182,8 +183,10 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.215">
 
         <ProgressBar
             android:id="@+id/progressBar"

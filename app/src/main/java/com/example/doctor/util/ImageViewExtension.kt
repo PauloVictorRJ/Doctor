@@ -4,10 +4,10 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 
 
-fun ImageView.load(string: String) {
-    Glide.with(this.context).load(string).into(this)
+fun ImageView.load(any: Any) {
+    Glide.with(this.context).load(any).into(this)
 }
 
-fun ImageView.loadCircle(string: String) {
-    Glide.with(this.context).load(string).circleCrop().into(this)
+fun ImageView.loadCircle(any: Any) {
+    Glide.with(this.context).load(any).circleCrop().into(this)
 }

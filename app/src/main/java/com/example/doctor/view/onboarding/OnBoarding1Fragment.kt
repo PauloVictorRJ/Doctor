@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.doctor.R
 import com.example.doctor.databinding.FragmentOnBoarding1Binding
-import com.example.doctor.model.SharedPref
 import com.example.doctor.viewmodel.OnBoardingViewModel
 
 

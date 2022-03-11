@@ -8,9 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitFactory {
-    fun build(client: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
-        .client(client)
-        .baseUrl(BuildConfig.BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
+    fun build(client: OkHttpClient, gson: Gson, isLoginApi: Boolean = false): Retrofit =
+        Retrofit.Builder()
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(if (isLoginApi) BuildConfig.BASE_URL_LOGIN else BuildConfig.BASE_URL_USERS)
+            .build()
 }

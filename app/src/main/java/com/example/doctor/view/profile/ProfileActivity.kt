@@ -1,13 +1,14 @@
 package com.example.doctor.view.profile
 
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.doctor.R
 import com.example.doctor.util.loadCircle
+import com.example.doctor.view.finddoctors.FindDoctorsActivity
 import com.example.doctor.viewmodel.ProfileViewModel
 import com.google.android.material.textfield.TextInputEditText
 
@@ -34,18 +35,27 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
     private val profilePicture: ImageView
         get() = findViewById(R.id.profile_picture)
 
-    private val refresh: ImageButton
-        get() = findViewById(R.id.refresh)
+    private val btnContinue: Button
+        get() = findViewById(R.id.btn_continue)
+
+    private val btnRefresh: Button
+        get() = findViewById(R.id.btn_refresh)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.loadDoctor()
+        viewModel.loadUser()
+
+        btnContinue.setOnClickListener {
+            val intent = Intent(this, FindDoctorsActivity::class.java)
+            startActivity(intent)
+        }
 
         observeData()
 
-        refresh.setOnClickListener {
-            viewModel.loadDoctor()
+        btnRefresh.setOnClickListener {
+            viewModel.loadUser()
         }
     }
 
@@ -64,5 +74,4 @@ class ProfileActivity : AppCompatActivity(R.layout.activity_profile) {
             profilePicture.loadCircle(it.picture.large)
         }
     }
-
 }
