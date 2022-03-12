@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class DoctorsResponse(
     @SerializedName("limit_page")
-    val limite_paginas: Int,
+    val limitPage: Int,
 
     @SerializedName("doctors")
     val results: List<Doctors>

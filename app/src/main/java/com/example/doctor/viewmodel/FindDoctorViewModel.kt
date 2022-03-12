@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.doctor.model.DoctorsResponse
 import com.example.doctor.model.repository.DoctorRepository
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -15,24 +16,34 @@ import kotlinx.coroutines.launch
 
 
 class FindDoctorViewModel(
-    private val repository: DoctorRepository = DoctorRepository.instance
+    private val repository: DoctorRepository = DoctorRepository.instance,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Main
 ) :
     ViewModel() {
 
-    var pageDoctorsLimit = 0
+    private val _doctorLimitPage: MutableLiveData<Int> = MutableLiveData(0)
+    val doctorLimitPage: LiveData<Int> = _doctorLimitPage
 
     private val _listDoctors: MutableLiveData<DoctorsResponse> = MutableLiveData()
     val listDoctors: LiveData<DoctorsResponse>
         get() = _listDoctors
 
-    fun getDoctorList(pageNumber: Int) = viewModelScope.launch(Dispatchers.IO) {
+    private val _error = MutableLiveData(false)
+    val error: LiveData<Boolean>
+        get() = _error
+
+    private val _loading = MutableLiveData(false)
+    val loading: LiveData<Boolean>
+        get() = _loading
+
+    fun getDoctorList(pageNumber: Int) = viewModelScope.launch(dispatcher) {
         repository
             .getListDoctors(pageNumber)
-            .onStart { }
-            .catch { }
-            .onCompletion { }
+            .onStart { _loading.value = true }
+            .catch { _error.value = true }
+            .onCompletion { _loading.value = false }
             .collect {
-                pageDoctorsLimit = it.limite_paginas
+                _doctorLimitPage.value = it.limitPage
                 _listDoctors.postValue(it)
             }
     }

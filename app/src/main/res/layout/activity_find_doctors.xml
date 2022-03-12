@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".view.finddoctors.FindDoctorsActivity">
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/find_doctor_rv"
         android:layout_width="match_parent"
@@ -14,9 +23,9 @@
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="6"
         tools:listitem="@layout/fragment_find_doctors_rv_item" />
 
