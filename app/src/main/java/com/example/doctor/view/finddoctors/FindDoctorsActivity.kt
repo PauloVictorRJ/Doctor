@@ -65,8 +65,8 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
                 val lastItem = lastItemVisible + 5 >= totalCountItems
 
-                if ((totalCountItems > 0 && lastItem) && (page <= doctorLimitPage && loader.isVisible.not())) {
-                    findDoctorsViewModel.getDoctorList(page++)
+                if ((totalCountItems > 0 && lastItem) && (page < doctorLimitPage && loader.isVisible.not())) {
+                    findDoctorsViewModel.getDoctorList(++page)
                 }
             }
         })
