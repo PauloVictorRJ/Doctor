@@ -33,7 +33,7 @@ class FindDoctorsRvAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount() = diffUtil.currentList.size
 
     fun updateList(items: List<Doctors>) {
-        diffUtil.submitList(items)
+        diffUtil.submitList(diffUtil.currentList.plus(items))
     }
 
     companion object {
