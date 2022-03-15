@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_circle.xml" value="0.2665" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle.xml" value="0.2665" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle_blue.xml" value="0.2955" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle_red.xml" value="0.2955" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle_yellow.xml" value="0.2955" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/facebook_logo.xml" value="0.221" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/forgot_dialog_background.xml" value="0.2665" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo.xml" value="0.221" />

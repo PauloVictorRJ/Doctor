@@ -6,6 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".view.finddoctors.FindDoctorsActivity">
 
+    <Button
+        android:id="@+id/btn_sql_load_api"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_background_retangle_green"
+        android:text="Load (api)"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_sql_load_sql"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_background_retangle_green"
+        android:text="Load (sql)"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/btn_sql_load_api"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_sql_save_sql"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_background_retangle_green"
+        android:text="Save (sql)"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/btn_sql_load_sql"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_sql_delete_sql"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_background_retangle_green"
+        android:text="Delete (sql)"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/btn_sql_save_sql"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loader"
         android:layout_width="wrap_content"

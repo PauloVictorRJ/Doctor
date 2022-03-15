@@ -120,7 +120,7 @@
             android:id="@+id/find_doctor_item_booking_btn"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:background="@drawable/btn_background_retangle"
+            android:background="@drawable/btn_background_retangle_green"
             android:text="@string/find_doctor_item_book_now_btn_txt"
             android:textColor="@color/white"
             android:textSize="11sp"

@@ -136,7 +136,7 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="580dp"
-        android:background="@drawable/btn_background_retangle"
+        android:background="@drawable/btn_background_retangle_green"
         android:elevation="10dp"
         android:text="@string/profile_btn_txt"
         android:textAllCaps="false"

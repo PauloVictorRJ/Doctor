@@ -89,7 +89,7 @@
         android:layout_width="295dp"
         android:layout_height="54dp"
         android:layout_marginTop="530dp"
-        android:background="@drawable/btn_background_retangle"
+        android:background="@drawable/btn_background_retangle_green"
         android:elevation="10dp"
         android:text="@string/login_btn_login_txt"
         android:textAllCaps="false"
