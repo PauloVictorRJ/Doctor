@@ -42,7 +42,7 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
     private var doctorLimitPage = 0
 
-    private var doctorLocal:List<Doctors> = listOf()
+    private var doctorLocal: List<Doctors> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +63,7 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
         }
 
         btnSqlSaveSql.setOnClickListener {
-            dbRoom.doctorDao().insert()
+
         }
 
         btnSqlDeleteSql.setOnClickListener {
@@ -73,7 +73,6 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
     private fun observeData() {
         findDoctorsViewModel.listDoctors.observe(this) {
-            doctorLocal = it.results
             adapter.updateList(it.results)
         }
 

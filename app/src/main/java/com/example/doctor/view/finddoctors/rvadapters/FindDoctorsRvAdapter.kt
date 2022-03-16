@@ -3,10 +3,10 @@ package com.example.doctor.view.finddoctors
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctor.R
 import com.example.doctor.model.Doctors
+import com.example.doctor.util.DiffUtil.Companion.DIFF_UTIL
 import com.example.doctor.view.finddoctors.rvadapters.FindDoctorsRvViewHolder
 
 
@@ -34,17 +34,5 @@ class FindDoctorsRvAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun updateList(items: List<Doctors>) {
         diffUtil.submitList(diffUtil.currentList.plus(items))
-    }
-
-    companion object {
-        val DIFF_UTIL = object : DiffUtil.ItemCallback<Doctors>() {
-            override fun areItemsTheSame(oldItem: Doctors, newItem: Doctors): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: Doctors, newItem: Doctors): Boolean {
-                return oldItem.id == newItem.id
-            }
-        }
     }
 }
