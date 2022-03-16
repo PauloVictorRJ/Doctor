@@ -10,22 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctor.R
 import com.example.doctor.model.Doctors
-import com.example.doctor.model.DoctorsResponse
-import com.example.doctor.model.local.DbDoctorHelper
-import com.example.doctor.model.local.entity.DoctorEntry
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_API_ID
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_CLASSIFICATION
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_EXPERIENCE
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_PATIENT_STORIES
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_PHOTO
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_SPECIALIZATION
-import com.example.doctor.model.local.entity.DoctorEntry.COLUMN_NAME_VIEWS
-import com.example.doctor.model.local.entity.DoctorEntry.COlUMN_NAME_NAME
+import com.example.doctor.model.factory.DatabaseFactory
+import com.example.doctor.model.local.AppDatabase
 import com.example.doctor.viewmodel.FindDoctorViewModel
 
 
 class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
-    private lateinit var dbDoctorHelper: DbDoctorHelper
+    private lateinit var dbRoom: AppDatabase
 
     private val adapter = FindDoctorsRvAdapter()
 
@@ -51,12 +42,11 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
     private var doctorLimitPage = 0
 
-    private var doctorLocal = listOf<Doctors>()
+    private var doctorLocal:List<Doctors> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        dbDoctorHelper = DbDoctorHelper(this)
+        dbRoom = DatabaseFactory.getDatabase(this)
 
         findDoctorRv.adapter = adapter
 
@@ -69,39 +59,16 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
         }
 
         btnSqlLoadSql.setOnClickListener {
-            listAll()
+
         }
 
         btnSqlSaveSql.setOnClickListener {
-            save(doctorLocal)
+            dbRoom.doctorDao().insert()
         }
 
         btnSqlDeleteSql.setOnClickListener {
 
         }
-    }
-
-    private fun save(doctorLocal: List<Doctors>) {
-        val id = dbDoctorHelper.insert {
-            doctorLocal.forEach {
-                put(COLUMN_NAME_API_ID, it.id)
-                put(COLUMN_NAME_PHOTO, it.photo)
-                put(COlUMN_NAME_NAME, it.name)
-                put(COLUMN_NAME_SPECIALIZATION, it.specialization)
-                put(COLUMN_NAME_CLASSIFICATION, it.classification)
-                put(COLUMN_NAME_EXPERIENCE, it.experience)
-                put(COLUMN_NAME_PATIENT_STORIES, it.patientStories)
-                put(COLUMN_NAME_VIEWS, it.views)
-            }
-        }
-    }
-
-    private fun deleteDoctor(id: Long) {
-        dbDoctorHelper.delete(id)
-    }
-
-    private fun listAll() {
-        dbDoctorHelper.listAll()
     }
 
     private fun observeData() {
@@ -115,7 +82,7 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
         }
 
         findDoctorsViewModel.loading.observe(this) {
-            Thread.sleep(1000)
+            Thread.sleep(500)
             loader.isVisible = it
         }
     }
@@ -138,5 +105,10 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
                 }
             }
         })
+    }
+
+    override fun onStop() {
+        DatabaseFactory.removeInstance()
+        super.onStop()
     }
 }

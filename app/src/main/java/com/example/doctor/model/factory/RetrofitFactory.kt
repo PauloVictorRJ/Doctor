@@ -1,5 +1,6 @@
 package com.example.doctor.model.factory
 
+import androidx.databinding.ktx.BuildConfig
 import com.example.doctor.BuildConfig
 import com.google.gson.Gson
 import okhttp3.OkHttpClient

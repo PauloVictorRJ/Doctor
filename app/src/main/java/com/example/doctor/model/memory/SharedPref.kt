@@ -8,7 +8,7 @@ import java.lang.IllegalArgumentException
 
 class SharedPref {
     private val sharedPref: SharedPreferences = App
-        .context?.getSharedPreferences("doctor", Context.MODE_PRIVATE) ?: throw IllegalArgumentException("shared preferences error!")
+        .appContext?.getSharedPreferences("doctor", Context.MODE_PRIVATE) ?: throw IllegalArgumentException("shared preferences error!")
 
     fun saveBoolean(id: String, boolean: Boolean) {
         sharedPref.edit()?.putBoolean(id, boolean)?.apply()
