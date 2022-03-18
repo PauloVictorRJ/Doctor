@@ -1,6 +1,5 @@
 package com.example.doctor.model.repository
 
-import com.example.doctor.App
 import com.example.doctor.model.Doctors
 import com.example.doctor.model.DoctorsResponse
 import com.example.doctor.model.factory.DatabaseFactory
@@ -23,7 +22,7 @@ class DoctorRepository(
         emit(api.getDoctors(pageNumber))
     }.catch { error ->
         if (error is IOException && NetworkConnectionUtils.isConnected().not()) {
-            val dados = DatabaseFactory.getDatabase(App.appContext!!)
+            val dados = DatabaseFactory.getDatabase()
             emit(
                 DoctorsResponse(
                     limitPage = dados.doctorDao().listAll().size / 10,

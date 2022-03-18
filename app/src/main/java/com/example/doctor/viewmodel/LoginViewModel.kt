@@ -1,9 +1,8 @@
 package com.example.doctor.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.doctor.model.DataResult
+import com.example.doctor.model.LoginResponse
 import com.example.doctor.model.memory.SharedPref
 import com.example.doctor.model.repository.LoginRepository
 import kotlinx.coroutines.Dispatchers
@@ -12,23 +11,15 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class LoginViewModel(val repository: LoginRepository = LoginRepository.instance, val sharedPref:SharedPref = SharedPref.instance) : ViewModel() {
-    private val _error: MutableLiveData<Boolean> = MutableLiveData(false)
-    val error: LiveData<Boolean> = _error
+class LoginViewModel(
+    private val repository: LoginRepository = LoginRepository.instance,
+    private val sharedPref: SharedPref = SharedPref.instance
+) : ViewModel() {
 
-    private val _success: MutableLiveData<String> = MutableLiveData()
-    val success: LiveData<String>
-        get() = _success
+    fun login(email: String, password: String) :LiveData<DataResult<LoginResponse>> =
+        repository.login(email, password).asLiveData()
 
-    fun login(email: String, password: String) = viewModelScope.launch(Dispatchers.IO) {
-        repository
-            .login(email, password)
-            .catch { _error.postValue(true) }
-            .collect { _success.postValue(it.token)
-            }
-    }
-
-    fun saveToken(token:String){
+    fun saveToken(token: String) {
         sharedPref.saveString("token", token)
     }
 

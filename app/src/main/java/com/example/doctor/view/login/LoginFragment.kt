@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
 import com.example.doctor.R
 import com.example.doctor.databinding.FragmentLoginBinding
@@ -64,6 +65,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         return binding.root
+    }
+
+    private fun loadUser(){
+        loginViewModel.login(loginEmail.text.toString(), loginPassword.text.toString()).observe(viewLifecycleOwner){
+            when
+        }
     }
 
     override fun onDestroyView() {
