@@ -6,60 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".view.finddoctors.FindDoctorsActivity">
 
-    <Button
-        android:id="@+id/btn_sql_load_api"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_background_retangle_green"
-        android:text="Load (api)"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Find Doctors"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_sql_load_sql"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_background_retangle_green"
-        android:text="Load (sql)"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/btn_sql_load_api"
+        android:text="Favoritos"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="270dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <SearchView
+        android:id="@+id/searc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_sql_save_sql"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_background_retangle_green"
-        android:text="Save (sql)"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/btn_sql_load_sql"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_sql_delete_sql"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_background_retangle_green"
-        android:text="Delete (sql)"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/btn_sql_save_sql"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.core.widget.ContentLoadingProgressBar
+    <ProgressBar
         android:id="@+id/loader"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

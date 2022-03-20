@@ -2,6 +2,8 @@ package com.example.doctor.view.finddoctors
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.compose.material.Button
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctor.R
@@ -10,8 +12,9 @@ import com.example.doctor.util.DiffUtil.Companion.DIFF_UTIL
 import com.example.doctor.view.finddoctors.rvadapters.FindDoctorsRvViewHolder
 
 
-class FindDoctorsRvAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val diffUtil = AsyncListDiffer<Doctors>(this, DIFF_UTIL)
+class FindDoctorsRvAdapter() :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val diffUtil = AsyncListDiffer(this, DIFF_UTIL)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)

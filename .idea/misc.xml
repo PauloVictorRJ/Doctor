@@ -9,6 +9,7 @@
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle_red.xml" value="0.2955" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/btn_background_retangle_yellow.xml" value="0.2955" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/facebook_logo.xml" value="0.221" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/drawable/fav_selector.xml" value="0.2855" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/forgot_dialog_background.xml" value="0.2665" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo.xml" value="0.221" />
         <entry key="..\:/DH/Doctor/app/src/main/res/drawable/google_logo_cores.xml" value="0.221" />
@@ -31,7 +32,7 @@
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_find_doctors.xml" value="0.33" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_main.xml" value="0.2671875" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/activity_profile.xml" value="0.33" />
-        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_find_doctors_rv_item.xml" value="0.75" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_find_doctors_rv_item.xml" value="0.33" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.25" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.35625" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_login.xml" value="0.22" />
@@ -40,6 +41,7 @@
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.209375" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/DH/Doctor/app/src/main/res/layout/fragment_splash.xml" value="0.33" />
+        <entry key="..\:/DH/Doctor/app/src/main/res/xml/fav_selector.xml" value="0.35625" />
       </map>
     </option>
   </component>

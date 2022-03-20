@@ -9,86 +9,44 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doctor.R
-import com.example.doctor.model.Doctors
+import com.example.doctor.databinding.ActivityFindDoctorsBinding
+import com.example.doctor.model.DataResult
 import com.example.doctor.model.factory.DatabaseFactory
-import com.example.doctor.model.local.AppDatabase
 import com.example.doctor.viewmodel.FindDoctorViewModel
 
 
 class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
-    private lateinit var dbRoom: AppDatabase
-
-    private val adapter = FindDoctorsRvAdapter()
-
-    private val findDoctorRv: RecyclerView
-        get() = findViewById(R.id.find_doctor_rv)
-
-    private val loader: ProgressBar
-        get() = findViewById(R.id.loader)
-
-    private val btnSqlLoadApi: Button
-        get() = findViewById(R.id.btn_sql_load_api)
-
-    private val btnSqlLoadSql: Button
-        get() = findViewById(R.id.btn_sql_load_sql)
-
-    private val btnSqlSaveSql: Button
-        get() = findViewById(R.id.btn_sql_save_sql)
-
-    private val btnSqlDeleteSql: Button
-        get() = findViewById(R.id.btn_sql_delete_sql)
-
+    private val binding by lazy { ActivityFindDoctorsBinding.inflate(layoutInflater) }
     private val findDoctorsViewModel: FindDoctorViewModel by viewModels()
-
+    private val findDoctorRv by lazy { binding.findDoctorRv }
+    private val adapterDoctorRV by lazy { FindDoctorsRvAdapter() }
+    private val loader by lazy { binding.loader }
     private var doctorLimitPage = 0
-
-    private var doctorLocal: List<Doctors> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dbRoom = DatabaseFactory.getDatabase(this)
 
-        findDoctorRv.adapter = adapter
-
+        findDoctorRv.adapter = adapterDoctorRV
         setScrollView()
 
-        observeData()
-
-        btnSqlLoadApi.setOnClickListener {
-            findDoctorsViewModel.getDoctorList(1)
-        }
-
-        btnSqlLoadSql.setOnClickListener {
-
-        }
-
-        btnSqlSaveSql.setOnClickListener {
-
-        }
-
-        btnSqlDeleteSql.setOnClickListener {
-
-        }
-    }
-
-    private fun observeData() {
-        findDoctorsViewModel.listDoctors.observe(this) {
-            adapter.updateList(it.results)
-        }
-
-        findDoctorsViewModel.doctorLimitPage.observe(this) {
-            doctorLimitPage = it
-        }
-
-        findDoctorsViewModel.loading.observe(this) {
-            Thread.sleep(500)
-            loader.isVisible = it
+        findDoctorsViewModel.getDoctorList(1).observe(this) {
+            when (it) {
+                is DataResult.Success -> {
+                    adapterDoctorRV.updateList(it.data.results)
+                    doctorLimitPage = it.data.limitPage
+                    loader.isVisible = false
+                }
+                is DataResult.Loading -> {
+                    loader.isVisible = true
+                }
+                else -> {}
+            }
+            setContentView(binding.root)
         }
     }
 
     private fun setScrollView() {
         var page = 1
-
         findDoctorRv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -99,8 +57,16 @@ class FindDoctorsActivity : AppCompatActivity(R.layout.activity_find_doctors) {
 
                 val lastItem = lastItemVisible + 5 >= totalCountItems
 
-                if ((totalCountItems > 0 && lastItem) && (page < doctorLimitPage && loader.isVisible.not())) {
-                    findDoctorsViewModel.getDoctorList(++page)
+                if ((totalCountItems > 0 && lastItem) && (page < doctorLimitPage && loader.isVisible)) {
+                    ++page
+                    findDoctorsViewModel.getDoctorList(page).observe(this@FindDoctorsActivity) {
+                        when (it) {
+                            is DataResult.Success -> {
+                                adapterDoctorRV.updateList(it.data.results)
+                            }
+                            else -> {}
+                        }
+                    }
                 }
             }
         })
